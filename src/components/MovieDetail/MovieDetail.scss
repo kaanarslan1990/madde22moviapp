@@ -2,6 +2,7 @@
 
 .movie-section {
     display: flex;
+    max-width: 100%;    
     justify-content: space-evenly;
     padding: 40px 0px;
     color: $font-primary;
@@ -59,4 +60,6 @@
   
   .section-right {
     margin-left: 30px;
+    max-width: 100%;
+    max-height: 100%;
   }

@@ -25,7 +25,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="home">
       <div className="banner-img"></div>
       <div className="search-bar">
         <form onSubmit={submitHandler}>
