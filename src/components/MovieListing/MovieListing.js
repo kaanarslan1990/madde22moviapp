@@ -1,14 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
-import { getAllMovies } from "../../features/MoviesSlice";
+import { getAllMovies } from "../../features/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
-import { Settings } from "../../common/setting";
+import { Settings } from "../../common/settings";
 
 const MovieListing = () => {
   
-  const movies = useSelector(getAllMovies);  
+  const movies = useSelector(getAllMovies);
   let renderMovies= "";
   
 
@@ -22,15 +22,21 @@ const MovieListing = () => {
       <h3>{movies.Error}</h3>
     </div>
   );
-    
+
+  
+  
   return (
       <div className="movie-wrapper">
           <div className="movie-list">
-              <h2>Movies</h2>
+              <h2>Results for "search"</h2>
+              <p>Click on a movie title to learn more about it</p>
+              
+              
               <div className="movie-container">
                 <Slider {...Settings}>{renderMovies}</Slider>
               </div>
-          </div>         
+          </div>
+        
       </div>
   );
 };

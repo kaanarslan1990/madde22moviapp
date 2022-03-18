@@ -1,33 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MovieListing from "../MovieListing/MovieListing";
-import movieApi from "../../common/apis/MovieApi";
-import { APIKey } from "../../common/apis/MovieApiKey";
+
 import { useDispatch } from "react-redux";
-import { addMovies } from "../../features/MoviesSlice";
+import { fetchAsyncMovies } from "../../features/movies/movieSlice";
+import "./Home.scss";
 
 const Home = () => {
-    const movieText = "Khan";
+  const [term, setTerm] = useState("");
+    
     const dispatch = useDispatch();
+    const movieText = "khan";
+    const submitHandler = (e) => {
+      e.preventDefault();
+      if(term === "") return alert("Please enter search term!");
+      dispatch(fetchAsyncMovies(term));
+      setTerm("");
+  }
+    
 
-  useEffect(() => {
-
-    const fetchMovies = async () => {
-      const response = await movieApi.get(
-        `?apiKey=${APIKey}&s=${movieText}&type=movie`
-      )
-        .catch((err) => {
-            console.log("Err :", err);
-        });
-        dispatch(addMovies(response.data));
-    };
-
-    fetchMovies();
+  useEffect(() => {    
+    dispatch(fetchAsyncMovies(movieText));
+    
   }, [dispatch]);
 
 
   return (
     <div>
       <div className="banner-img"></div>
+      <div className="search-bar">
+        <form onSubmit={submitHandler}>
+          <input
+            type="text"
+            value={term}
+            placeholder="Search Movies"
+            onChange={(e) => setTerm(e.target.value)}
+          />
+          <button type="submit">
+            Search
+          </button>
+        </form>
+      </div>
       <MovieListing />
     </div>
   );

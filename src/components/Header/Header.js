@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./Header.scss";
 
 const Header = () => {
   return (
     <div className="header">
-      <div className="div logo">
-          <h1>OMDb API</h1>
-          <p>The Open Movie Database 🍿</p>
-      </div>
+      <Link to="/">
+        OMDb API<p>The Open Movie Database 🍿</p>
+      </Link>
     </div>
   );
 };
