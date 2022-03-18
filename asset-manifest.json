@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/madde22moviapp/static/css/main.ad6ec7a4.css",
+    "main.js": "/madde22moviapp/static/js/main.10b6e785.js",
+    "index.html": "/madde22moviapp/index.html",
+    "main.ad6ec7a4.css.map": "/madde22moviapp/static/css/main.ad6ec7a4.css.map",
+    "main.10b6e785.js.map": "/madde22moviapp/static/js/main.10b6e785.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad6ec7a4.css",
+    "static/js/main.10b6e785.js"
+  ]
+}
